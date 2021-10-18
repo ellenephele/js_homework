@@ -23,21 +23,24 @@
     // var cart = [
     //     {
     //         name: "item1",
-    //         price: 100
+    //         price: 100,
+    //         count: 1
     //     },
     //     {
     //         name: "item2",
-    //         price: 150
+    //         price: 150,
+    //         count: 2
     //     },
     //     {
     //         name: "item3",
-    //         price: 100
+    //         price: 100,
+    //         count: 4
     //     },
     // ];
     // var cartSum = 0;
     // for (var prod of cart) {
-    //     cartSum += prod.price;
-    //     console.log("Товар " + prod.name + " стоит: " + prod.price);
+    //     cartSum += prod.price * prod.count;
+    //     console.log("Товар " + prod.name + " стоит: " + prod.price * prod.count);
     // }
     // console.log("Товары в корзине на сумму: " + cartSum + " rub");
 
@@ -48,11 +51,11 @@
     // function countBasketPrice(cart) {
     //     var cartSum = 0;
     //     for (var prod of cart) {
-    //         cartSum += prod.price;
+    //         cartSum += prod.price * prod.count;
     //     }
     //     return cartSum;
     // }
-    // console.log("Товары в корзине на сумму: " + countBasketPrice(cart) + " у.е.");
+    // console.log("Товары в корзине на сумму: " + countBasketPrice(cart) + " rub");
 
     // 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
     // for (var i = 0; i < 10; console.log(i++)) { }
