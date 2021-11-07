@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея картинок</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        window.onload = function () {
+            var gallery = document.querySelector(".big");
+            var images = document.querySelectorAll('.small img');
+            for (var item of images) {
+                item.onclick = function () {
+                    gallery.innerHTML = "";
+                    var imgBig = document.createElement('img');
+                    imgBig.src = this.src.replace('small', 'big');
+                    imgBig.onerror = function () {
+                        alert('файл не найден');
+                    }
+                    gallery.append(imgBig);
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="small">
+            <img src="img/small/item1.png" alt="item1">
+            <img src="img/small/item2.png" alt="item2">
+            <img src="img/small/item3.png" alt="item3">
+        </div>
+        <div class="big"></div>
+    </div>
+</body>
+
+</html>

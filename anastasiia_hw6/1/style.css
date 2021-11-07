@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    gap: 20px;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.small {
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    transition: 0.5s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}

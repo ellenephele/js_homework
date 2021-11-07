@@ -1,0 +1,12 @@
+.catalog {
+    display: flex;
+    gap: 20px;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 10px;
+    background-color: rgb(216, 216, 216);
+}
