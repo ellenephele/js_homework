@@ -1,21 +1,5 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-// let getRequest = (url, cb) => {
-//     let xhr = new XMLHttpRequest();
-//     // window.ActiveXObject -> xhr = new ActiveXObject()
-//     xhr.open("GET", url, true);
-//     xhr.onreadystatechange = () => {
-//         if(xhr.readyState === 4){
-//             if(xhr.status !== 200){
-//                 console.log('Error');
-//             } else {
-//                 cb(xhr.responseText);
-//             }
-//         }
-//     };
-//     xhr.send();
-// };
-
 class ProductsList {
     constructor(container = '.products') {
         this.container = container;
@@ -27,13 +11,7 @@ class ProductsList {
                 this.render()
             });
     }
-    // _fetchProducts(cb){
-    //     getRequest(`${API}/catalogData.json`, (data) => {
-    //         this.goods = JSON.parse(data);
-    //         console.log(this.goods);
-    //         cb();
-    //     })
-    // }
+
     _getProducts() {
         return fetch(`${API}/catalogData.json`)
             .then(result => result.json())
@@ -57,7 +35,7 @@ class ProductsList {
 
 
 class ProductItem {
-    constructor(product, img = 'https://placehold.it/200x150') {
+    constructor(product, img = '') {
         this.title = product.product_name;
         this.price = product.price;
         this.id = product.id_product;
@@ -65,11 +43,11 @@ class ProductItem {
     }
     render() {
         return `<div class="product-item" data-id="${this.id}">
-                <img src="${this.img}" alt="Some img">
+                <img src="${this.img}" alt="item img">
                 <div class="desc">
                     <h3>${this.title}</h3>
                     <p>${this.price} $</p>
-                    <button class="buy-btn">Купить</button>
+                    <button class="buy-btn">Add to cart</button>
                 </div>
             </div>`
     }
@@ -78,7 +56,7 @@ class ProductItem {
 let list = new ProductsList();
 
 
-class basket {
+class Basket {
     constructor(container = '.cart-block') {
         this.container = container;
         this.goods = [];//массив товаров
@@ -112,7 +90,7 @@ class basket {
 
     _clickBasket() {
         document.querySelector(".btn-cart").addEventListener('click', () => {
-            document.querySelector(this.container).classList.toggle('invisible');
+            document.querySelector(this.container).classList.toggle('closed');
         });
     }
 }
@@ -122,7 +100,7 @@ class BasketItem {
     render(product) {
         return `<div class="cart-item" data-id="${product.id_product}">
                 <div class="product-bio">
-                <img src="${product.img}" alt="Some image">
+                <img src="${product.img}" alt="item image">
                 <div class="product-desc">
                 <p class="product-title">${product.product_name}</p>
                 <p class="product-quantity">Quantity: ${product.quantity}</p>
@@ -131,10 +109,10 @@ class BasketItem {
             </div>
             <div class="right-block">
                 <p class="product-price">$${product.quantity * product.price}</p>
-                <button class="del-btn" data-id="${product.id_product}">&times;</button>
+                <button class="del-btn" data-id="${product.id_product}">X</button>
             </div>
             </div>`
     }
 }
 
-let bask = new basket();
+let bask = new Basket();
