@@ -4,7 +4,7 @@ Vue.component('products', {
             catalogUrl: '/catalogData.json',
             filtered: [],
             products: [],
-            imgProduct: 'https://placehold.it/200x150'
+            imgProduct: '../img/catalog-item5.png'
         }
     },
      mounted(){
@@ -38,7 +38,7 @@ Vue.component('products', {
                  <div class="desc">
                      <h3>{{product.product_name}}</h3>
                      <p>{{product.price}}</p>
-                     <button class="buy-btn" @click="$emit('add-product', product)">Купить</button>
+                     <button class="buy-btn" @click="$emit('add-product', product)">Add to cart</button>
                  </div>
              </div>
      `
