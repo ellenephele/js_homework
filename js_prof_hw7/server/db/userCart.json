@@ -29,13 +29,6 @@
             "img_product": "img/catalog-item7.png",
             "price": 45,
             "quantity": 1
-        },
-        {
-            "quantity": 1,
-            "id_product": 1,
-            "product_name": "Red Shirt",
-            "img_product": "img/catalog-item2.png",
-            "price": 52
         }
     ]
 }
