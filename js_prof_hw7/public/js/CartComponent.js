@@ -7,6 +7,15 @@ Vue.component('cart', {
             show: false,
         }
     },
+    mounted(){
+        this.$parent.getJson('/api/getCart')
+            .then(data => {
+                for(let item of data.contents){
+                    item.imgPath = `img/small${item.id_product}.png`;
+                    this.cartItems.push(item);
+                }
+            });
+    },
     methods: {
         addProduct(product){
             let change = this.cartItems.find(el => el.id_product === product.id_product);
@@ -34,14 +43,6 @@ Vue.component('cart', {
                 })
         },
     },
-    mounted(){
-        this.$parent.getJson('/api/getCart')
-            .then(data => {
-                for(let el of data.contents){
-                    this.cartItems.push(el);
-                }
-            });
-    },
     template: `
     <div>
         <button class="btn-cart" type="button" @click="show = !show">Shopping Cart</button>
@@ -51,7 +52,7 @@ Vue.component('cart', {
                 v-for="item of cartItems" 
                 :key="item.id_product"
                 :cart-item="item" 
-                :img="imgCart"
+                :img="item.imgPath"
                 @remove="remove">
                 </cart-item>
             </div>
@@ -63,7 +64,7 @@ Vue.component('cart-item', {
     props: ['cartItem', 'img'],
     template: `
     <div class="cart-item">
-        <img src="https://via.placeholder.com/200x150" class="cart-img"/>
+        <img :src="img" alt="Some img">
         <div class="cart-text">
             <h3>{{ cartItem.product_name }}</h3>
             <p>{{ cartItem.price }}$</p>

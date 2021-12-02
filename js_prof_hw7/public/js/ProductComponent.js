@@ -4,7 +4,6 @@ Vue.component('products',{
             catalogUrl: '',
             products: [],
             filtered: [],
-            imgCatalog: 'https://via.placeholder.com/200x150'
         }
     },
     methods: {
@@ -16,9 +15,10 @@ Vue.component('products',{
     mounted(){
         this.$parent.getJson('/api/getProducts')
             .then(data => {
-                for(let el of data){
-                    this.products.push(el);
-                    this.filtered.push(el);
+                for(let item of data){
+                    item.imgPath = `img/${item.id_product}.png`;
+                    this.products.push(item);
+                    this.filtered.push(item);
                 }
             });
     },
@@ -26,7 +26,7 @@ Vue.component('products',{
     <div class="products">
         <product v-for="item of filtered" 
             :key="item.id_product" 
-            :img="imgCatalog" 
+            :img ="item.imgPath" 
             :product="item"></product>
     </div>
     `
