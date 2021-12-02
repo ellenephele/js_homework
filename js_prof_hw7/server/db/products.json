@@ -1,26 +1,26 @@
 [
   {
     "id_product": 1,
+    "imgProduct": "img/catalog-item2.png",
     "product_name": "Red Shirt",
-    "img_product": "img/catalog-item2.png",
     "price": 52
   },
   {
     "id_product": 2,
+    "imgProduct": "img/catalog-item5.png",
     "product_name": "White T-Shirt",
-    "img_product": "img/catalog-item5.png",
     "price": 22
   },
   {
       "id_product": 3,
+      "imgProduct": "img/catalog-item6.png",
       "product_name": "White T-Shirt",
-      "img_product": "img/catalog-item6.png",
       "price": 28
     },
     {
       "id_product": 4,
+      "imgProduct": "img/catalog-item7.png",
       "product_name": "White Shirt",
-      "img_product": "img/catalog-item7.png",
       "price": 45
     }
 ]
