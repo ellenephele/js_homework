@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback form</title>
+    <link rel="stylesheet" href="feedback.css">
+    <script>
+        window.onload = () => {
+            document.getElementById('fbform').addEventListener('submit', e => {
+                let valid = new Validator('fbform');
+                if(!valid.valid){
+                    e.preventDefault();
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<form action="#" class="feedback" id="fbform">
+    <div>
+        <h2>Форма обратной связи</h2>
+        <label>
+            Имя <br>
+            <input type="text" name="name" id="name">
+        </label>
+    </div>
+    <div>
+        <label>
+            Телефон <br>
+            <input type="tel" name="phone" id="phone">
+        </label>
+    </div>
+    <div>
+        <label>
+            Email <br>
+            <input type="email" name="email" id="email">
+        </label>
+    </div>
+    <button id="val-btn">Отправить</button>
+</form>
+<script src="validation.js"></script>
+</body>
+</html>
